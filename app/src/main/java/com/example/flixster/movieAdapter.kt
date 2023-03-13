@@ -53,9 +53,11 @@ class MoviesAdapter(
         }
 
         var finalUrl = "https://image.tmdb.org/t/p/w500/"
+
         Glide.with(holder.mView)
-            .load(finalUrl+movie.backdrop_path)
+            .load(finalUrl+movie.backdrop_path).placeholder(R.drawable.ic_launcher_foreground)
             .centerInside()
+            .centerCrop() // scale to fill the ImageView and crop any extra
             .into(holder.mBookImage)
     }
 
